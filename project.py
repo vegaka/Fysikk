@@ -24,7 +24,7 @@ def function(pos, vel):
         return g * (mu * cos(alpha) - sin(alpha)) + (1 / m) * (-k1 * pos - k2 * (pos ** 3))
 
 # Experimental data
-data = np.genfromtxt("data.csv", delimiter=";")
+data = np.genfromtxt("data2.csv", delimiter=";")
 steady_state_pos = data[len(data) - 1][1]
 timestamps = [point[0] for point in data]
 positions = [point[1] - steady_state_pos for point in data]
@@ -38,11 +38,11 @@ x_0 = positions[0]
 #x_end = positions[len(positions) - 1]
 print(x_0)
 
-time_length = 8
-#h = time_length / steps
-h = 0.002
+time_length = 4
+h = time_length / steps
+#h = 0.002
 
-time = np.linspace(0.8, time_length, steps)
+time = np.linspace(0.25, time_length, steps)
 position = np.zeros(steps)
 velocity = np.zeros(steps)
 acceleration = np.zeros(steps)
