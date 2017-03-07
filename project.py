@@ -8,12 +8,12 @@ step_size = 0.001
 
 # System variables
 g = 9.81
-alpha = radians(41)
-mu = 3.1
+alpha = radians(54.5)
+mu = 1.37
 #mu = tan(alpha)
-m = 0.2663
-k1 = 6.8
-k2 = 0.2
+m = 0.334
+k1 = 0.56290714285714285714285714285714
+k2 = 0.3
 x_end = 0
 
 
