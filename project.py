@@ -9,11 +9,12 @@ step_size = 0.001
 # System variables
 g = 9.81
 alpha = radians(54.5)
-mu = 1.37
-#mu = tan(alpha)
-m = 0.334
-k1 = 0.56290714285714285714285714285714
-k2 = 0.3
+#mu = 1.37
+mu = 0.84
+m = 0.3342
+#k1 = 0.56290714285714285714285714285714
+k1 = 0.562907
+k2 = 0.17
 x_end = 0
 
 
@@ -38,7 +39,7 @@ x_0 = positions[0]
 #x_end = positions[len(positions) - 1]
 print(x_0)
 
-time_length = 4
+time_length = timestamps[len(timestamps) - 1]
 h = time_length / steps
 #h = 0.002
 
@@ -75,13 +76,13 @@ plt.ylabel(r'$x(t)$')
 plt.legend(loc="lower right")
 plt.grid()
 
-axk1 = plt.axes([0.25, 0.1, 0.65, 0.03])
-axk2 = plt.axes([0.25, 0.15, 0.65, 0.03])
-axmu = plt.axes([0.25, 0.2, 0.65, 0.03])
+axk1 = plt.axes([0.2, 0.05, 0.65, 0.03])
+axk2 = plt.axes([0.2, 0.1, 0.65, 0.03])
+axmu = plt.axes([0.2, 0.15, 0.65, 0.03])
 
-sk1 = Slider(axk1, 'k1', 0.1, 30.0, valinit=k1)
-sk2 = Slider(axk2, 'k2', 0.1, 10.0, valinit=k2)
-smu = Slider(axmu, 'mu', 0.1, 10.0, valinit=mu)
+sk1 = Slider(axk1, 'k1', 0.001, 5.0, valinit=k1)
+sk2 = Slider(axk2, 'k2', 0.0001, 1.0, valinit=k2)
+smu = Slider(axmu, 'mu', 0.01, 5.0, valinit=mu)
 
 def update(val):
     global k1, k2, mu
@@ -96,16 +97,3 @@ smu.on_changed(update)
 
 
 plt.show()
-
-
-"""
-plt.figure()
-plt.plot(time, position, label="Numerical")
-#plt.plot(time, velocity, label="Velocity")
-plt.plot(timestamps, positions, label="Experimental")
-plt.xlabel(r'$t$')
-plt.ylabel(r'$x(t)$')
-plt.legend(loc="lower right")
-plt.grid()
-plt.show()
-"""
