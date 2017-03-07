@@ -24,7 +24,7 @@ def function(pos, vel):
         return g * (mu * cos(alpha) - sin(alpha)) + (1 / m) * (-k1 * pos - k2 * (pos ** 3))
 
 # Experimental data
-data = np.genfromtxt("data.txt", delimiter=",")
+data = np.genfromtxt("data.csv", delimiter=";")
 steady_state_pos = data[len(data) - 1][1]
 timestamps = [point[0] for point in data]
 positions = [point[1] - steady_state_pos for point in data]
